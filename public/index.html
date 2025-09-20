@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Проверка дублирования кода</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <h1>Проверка кода на дублирование</h1>
+        <p>
+          Загрузите файл с исходным кодом или текстом и получите отчёт о потенциальных
+          дублированиях. Поддерживаются самые популярные языки программирования
+          и форматы файлов.
+        </p>
+      </header>
+
+      <section class="card">
+        <form id="upload-form" class="upload-form">
+          <label for="file-input" class="upload-label">Выберите файл с кодом</label>
+          <input id="file-input" name="codeFile" type="file" required />
+          <p class="hint">
+            Разрешены файлы популярных форматов: JavaScript, TypeScript, Python,
+            Java, C/C++, C#, PHP, Go, Ruby, Swift, Kotlin, SQL, HTML, CSS, YAML и другие.
+          </p>
+          <button type="submit" class="primary">Запустить проверку</button>
+        </form>
+      </section>
+
+      <section id="supported-formats" class="card">
+        <h2>Поддерживаемые форматы</h2>
+        <div id="formats-list" class="formats"></div>
+      </section>
+
+      <section id="result" class="card hidden">
+        <h2>Результат анализа</h2>
+        <div id="status"></div>
+        <div id="summary" class="summary"></div>
+        <div id="warnings" class="warnings"></div>
+        <div id="duplicates"></div>
+        <div id="suggestions" class="suggestions"></div>
+      </section>
+    </main>
+
+    <template id="duplicate-template">
+      <article class="duplicate-group">
+        <header>
+          <h3></h3>
+          <p class="occurrences"></p>
+        </header>
+        <pre class="snippet"></pre>
+        <ul class="occurrence-list"></ul>
+      </article>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
